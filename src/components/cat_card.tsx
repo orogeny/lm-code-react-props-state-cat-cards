@@ -1,10 +1,17 @@
-function CatCard() {
+interface CatCardProps {
+  name: string;
+  species: string;
+  favFoods: Array<string>;
+  birthYear: number;
+}
+
+function CatCard(props: CatCardProps) {
   return (
     <div className="card">
-      <h3 className="card__text card__header">Mr Gwumpy</h3>
-      <p className="card__text">Species: Cat</p>
-      <p className="card__text">Favourite Food(s): Caviar</p>
-      <p className="card__text">Birth Year: 1984</p>
+      <h3 className="card__text card__header">{props.name}</h3>
+      <p className="card__text">Species: {props.species}</p>
+      <p className="card__text">Favourite Food(s): {props.favFoods}</p>
+      <p className="card__text">Birth Year: {props.birthYear}</p>
     </div>
   );
 }

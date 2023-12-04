@@ -6,7 +6,7 @@ import Cat from "./data/cat";
 import { useState } from "react";
 import CatCard from "./components/cat_card";
 
-const initialCats = [
+const catCollection = [
   {
     name: "Little Miss Purrfect",
     species: "Cat",
@@ -82,7 +82,7 @@ const initialCats = [
 ];
 
 function App(): JSX.Element {
-  const [cats, setCats] = useState<Array<Cat>>(initialCats);
+  const [cats, setCats] = useState<Array<Cat>>(catCollection);
 
   return (
     <>
@@ -92,7 +92,13 @@ function App(): JSX.Element {
       <main>
         <div className="cards__wrapper">
           {cats.map((c) => (
-            <CatCard key={c.name} />
+            <CatCard
+              key={c.name}
+              name={c.name}
+              species={c.species}
+              favFoods={c.favFoods}
+              birthYear={c.birthYear}
+            />
           ))}
         </div>
       </main>
