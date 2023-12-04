@@ -82,12 +82,19 @@ const catCollection = [
 ];
 
 function App(): JSX.Element {
-  const [cats] = useState<Array<Cat>>(catCollection);
+  const [cats] = useState<Array<Cat>>(
+    catCollection.concat({
+      name: "Captain Catface",
+      species: "Sea Cattain",
+      favFoods: ["fish, rum"],
+      birthYear: 2016,
+    })
+  );
 
   return (
     <>
       <Navbar />
-      <Header />
+      <Header catCount={cats.length} />
 
       <main>
         <div className="cards__wrapper">
