@@ -91,7 +91,9 @@ function App(): JSX.Element {
 
       <main>
         <div className="cards__wrapper">
-          <CatCard />
+          {cats.map((c) => (
+            <CatCard key={c.name} />
+          ))}
         </div>
       </main>
 
