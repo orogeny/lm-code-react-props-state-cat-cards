@@ -82,7 +82,7 @@ const catCollection = [
 ];
 
 function App(): JSX.Element {
-  const [cats, setCats] = useState<Array<Cat>>(catCollection);
+  const [cats] = useState<Array<Cat>>(catCollection);
 
   return (
     <>
@@ -91,13 +91,14 @@ function App(): JSX.Element {
 
       <main>
         <div className="cards__wrapper">
-          {cats.map((c) => (
+          {cats.map((c, index) => (
             <CatCard
               key={c.name}
               name={c.name}
               species={c.species}
               favFoods={c.favFoods}
               birthYear={c.birthYear}
+              catIndex={index}
             />
           ))}
         </div>
