@@ -100,7 +100,7 @@ function App(): JSX.Element {
         <div className="cards__wrapper">
           {cats.map((c, index) => (
             <CatCard
-              key={c.name}
+              key={crypto.randomUUID()}
               name={c.name}
               species={c.species}
               favFoods={c.favFoods}
