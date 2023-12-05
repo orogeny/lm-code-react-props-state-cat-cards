@@ -4,15 +4,18 @@ import Navbar from "./components/navbar";
 import Header from "./components/header";
 import Footer from "./components/footer";
 import PetCard from "./components/pet_card";
+import { PetForm } from "./components/pet_form";
 import { Pet } from "./data/pet";
 import { catData } from "./data/cat_data";
 import { dogData } from "./data/dog_data";
 
 function App(): JSX.Element {
-  const [pets] = useState<Array<Pet>>(catData.concat(dogData));
+  const [pets, setPets] = useState<Array<Pet>>(catData.concat(dogData));
 
   const catCount = pets.filter((p) => p.species.toLowerCase() === "cat").length;
   const dogCount = pets.length - catCount;
+
+  const addPet = (newPet: Pet) => setPets((prev) => prev.concat(newPet));
 
   return (
     <>
@@ -32,6 +35,8 @@ function App(): JSX.Element {
             />
           ))}
         </div>
+
+        <PetForm addPet={addPet} />
       </main>
 
       <Footer />
