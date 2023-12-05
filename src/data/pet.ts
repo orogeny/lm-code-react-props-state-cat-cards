@@ -1,7 +1,7 @@
-export default interface Cat {
+export type Pet = {
   id: string;
   name: string;
   species: string;
-  favFoods: Array<string>;
+  favFoods: string[];
   birthYear: number;
-}
+};

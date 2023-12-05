@@ -1,4 +1,4 @@
-interface CatImageProps {
+interface PetImageProps {
   image: string;
   altText: string;
   licenceType: string;
@@ -7,7 +7,7 @@ interface CatImageProps {
   attributionUrl?: string;
 }
 
-const CatImage: React.FC<CatImageProps> = ({
+const PetImage: React.FC<PetImageProps> = ({
   image,
   altText,
   licenceType,
@@ -28,4 +28,4 @@ const CatImage: React.FC<CatImageProps> = ({
   </>
 );
 
-export default CatImage;
+export default PetImage;
