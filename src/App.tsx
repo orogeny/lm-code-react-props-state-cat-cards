@@ -35,9 +35,9 @@ function App(): JSX.Element {
             />
           ))}
         </div>
-
-        <PetForm addPet={addPet} />
       </main>
+
+      <PetForm addPet={addPet} />
 
       <Footer />
     </>

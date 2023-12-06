@@ -11,16 +11,16 @@ function PetForm({ addPet }: PetFormProps) {
     ev.preventDefault();
 
     const target = ev.target as typeof ev.target & {
-      name: { value: string };
+      pet_name: { value: string };
       species: { value: string };
-      favFoods: { value: string };
-      birthYear: { value: number };
+      fav_foods: { value: string };
+      birth_year: { value: number };
     };
 
-    const name = target.name.value;
+    const name = target.pet_name.value;
     const species = target.species.value;
-    const favFoods = target.favFoods.value.split("\n");
-    const birthYear = target.birthYear.value;
+    const favFoods = target.fav_foods.value.split("\n");
+    const birthYear = target.birth_year.value;
 
     const pet = {
       id: uuidv4(),
@@ -34,28 +34,38 @@ function PetForm({ addPet }: PetFormProps) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Pet name:
-        <input type="text" id="name" />
-      </label>
+    <form className="pet-form" onSubmit={handleSubmit}>
+      <h3 className="pet-form__header pet-form__text">Add a new pet</h3>
 
-      <label>
-        Species:
-        <input type="text" id="species" />
-      </label>
+      <div className="pet-form__container">
+        <div className="pet-form__entry">
+          <label className="pet-form__label" htmlFor="pet_name">
+            Name:
+          </label>
+          <input type="text" id="pet_name" />
+        </div>
 
-      <label>
-        Favourite Food(s):
-        <textarea id="favFoods" rows={4} cols={30} />
-      </label>
+        <div className="pet-form__entry">
+          <label className="pet-form__label" htmlFor="species">
+            Species:
+          </label>
+          <input type="text" id="species" />
+        </div>
 
-      <label>
-        Birth Year:
-        <input type="number" id="birthYear" />
-      </label>
+        <div className="pet-form__entry">
+          <label className="pet-form__label" htmlFor="birth_year">
+            Birth Year:
+          </label>
+          <input type="number" id="birth_year" />
+        </div>
 
-      <button>Add</button>
+        <div className="pet-form__entry">
+          <label className="pet-form__label">Favourite Food(s):</label>
+          <textarea id="favFoods" rows={4} cols={30} />
+        </div>
+      </div>
+
+      <button className="pet-form__button">Add</button>
     </form>
   );
 }
